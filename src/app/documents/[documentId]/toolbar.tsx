@@ -18,7 +18,6 @@ import {
   ListOrderedIcon,
   ListTodoIcon,
   LucideIcon,
-  MessageSquareIcon,
   MessageSquarePlusIcon,
   MinusIcon,
   PlusIcon,
@@ -37,7 +36,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -49,10 +47,8 @@ import {
 } from "@/components/ui/dialog";
 import { Level } from "@tiptap/extension-heading";
 import { ColorResult, SketchPicker } from "react-color";
-import { set } from "date-fns";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { isActive } from "@tiptap/react";
 
 const LineHeightButton = () => {
   const { editor } = useEditorStore();

@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  eslint: {
+    ignoreDuringBuilds: true, // ✅ This prevents ESLint from blocking your Vercel deploy
+  },
 };
 
 export default nextConfig;

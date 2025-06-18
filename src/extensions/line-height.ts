@@ -1,5 +1,4 @@
 import { Extension } from "@tiptap/react";
-import { nodeServerAppPaths } from "next/dist/build/webpack/plugins/pages-manifest-plugin";
 
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {

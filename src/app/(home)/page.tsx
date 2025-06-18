@@ -1,9 +1,8 @@
 "use client";
-import Link from "next/link";
 
 import { Navbar } from "./navbar";
 import { TemplateGallery } from "./template-gallery";
-import { usePaginatedQuery, useQuery } from "convex/react";
+import { usePaginatedQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { DocumentsTable } from "./documents-table";
 import { useSearchParam } from "@/hooks/use-search-params";
