@@ -3,7 +3,6 @@ import { ConvexHttpClient } from "convex/browser";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { api } from "../../../../convex/_generated/api";
 
-// ✅ Handle missing key safely and clearly
 const liveblocksSecret = process.env.LIVEBLOCKS_SECRET_KEY;
 if (!liveblocksSecret) {
   throw new Error("LIVEBLOCKS_SECRET_KEY is not set in environment variables.");
