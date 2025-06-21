@@ -5,8 +5,10 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { api } from "../../../../convex/_generated/api";
 
 // Check that the secret is defined (so it doesn't crash on Vercel)
-if (!process.env.LIVEBLOCKS_SECRET_KEY) {
-  throw new Error("LIVEBLOCKS_SECRET_KEY is not set in environment variables.");
+if (!process.env.LIVEBLOCKS_SECRET_KEY_TEST) {
+  throw new Error(
+    "LIVEBLOCKS_SECRET_KEY_TEST is not set in environment variables."
+  );
 }
 
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
