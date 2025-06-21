@@ -1,20 +1,17 @@
 import { Liveblocks } from "@liveblocks/node";
 import { ConvexHttpClient } from "convex/browser";
 import { auth, currentUser } from "@clerk/nextjs/server";
-
 import { api } from "../../../../convex/_generated/api";
 
-// Check that the secret is defined (so it doesn't crash on Vercel)
-if (!process.env.LIVEBLOCKS_SECRET_KEY_TEST) {
-  throw new Error(
-    "LIVEBLOCKS_SECRET_KEY_TEST is not set in environment variables."
-  );
+// ✅ Handle missing key safely and clearly
+const liveblocksSecret = process.env.LIVEBLOCKS_SECRET_KEY;
+if (!liveblocksSecret) {
+  throw new Error("LIVEBLOCKS_SECRET_KEY is not set in environment variables.");
 }
 
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
-
 const liveblocks = new Liveblocks({
-  secret: process.env.LIVEBLOCKS_SECRET_KEY,
+  secret: liveblocksSecret,
 });
 
 export async function POST(req: Request) {
@@ -46,11 +43,9 @@ export async function POST(req: Request) {
 
   const name =
     user.fullName ?? user.primaryEmailAddress?.emailAddress ?? "Anonymous";
-
   const nameToNumber = name
     .split("")
     .reduce((acc, char) => acc + char.charCodeAt(0), 0);
-
   const hue = Math.abs(nameToNumber) % 360;
   const color = `hsl(${hue}, 80%, 60%)`;
 
